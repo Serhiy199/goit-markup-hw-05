@@ -115,10 +115,6 @@ header {
   letter-spacing: 0.02em;
 }
 
-.link-item {
-  
-}
-
 .link-item:not(:last-child) {
   margin-right: 50px;
 }
