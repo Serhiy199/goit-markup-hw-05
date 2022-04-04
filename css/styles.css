@@ -99,7 +99,7 @@ header {
   color: var(--accent-color);
 }
 
-/* site-nav */
+/*========= site-nav ===========*/
 
 .site-nav {
   display: flex;
@@ -115,6 +115,10 @@ header {
   letter-spacing: 0.02em;
 }
 
+.link-item {
+  
+}
+
 .link-item:not(:last-child) {
   margin-right: 50px;
 }
@@ -124,8 +128,26 @@ header {
   color: var(--accent-color);
 }
 
-.link {
+.button-border {
+  position: relative;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.button-border::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+  content: '';
+
+  display: block;
+  
+  background-color: #2196F3;
+  border-radius: 2px;
 }
 
 .site-nav .link.current {
@@ -180,7 +202,7 @@ header {
   fill: currentColor;
 }
 
-/*main-hero*/
+/*========== main-hero =========*/
 .hero {
   max-width: 1600px;
   height: 600px;
@@ -240,15 +262,16 @@ header {
   text-align: center;
   text-decoration: none;
   letter-spacing: 0.06em;
+
 }
 
 .button:hover,
 .button:focus {
   color: #ffffff;
-  background-color: var(--accent-color);
+  background-color: #188CE8;
 }
 
-/*main-content*/
+/*====== main-content =========*/
 .aside {
   padding-top: 94px;
 }
@@ -294,12 +317,40 @@ header {
 }
 
 .work-list {
+  
   display: flex;
   flex-basis: calc(100%-90px) / 3;
 }
 
 .work-img:not(:nth-child(3n)) {
   margin-right: 30px;
+}
+
+.overley-work-list{
+  position: relative;
+}
+
+.overley-work-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  
+  color: #FFFFFF;
+
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 .team {
@@ -366,7 +417,7 @@ header {
   background-color: var(--accent-color);
 }
 
-/*partners*/
+/*======= partners ========*/
 
 .partners-list {
   display: flex;
@@ -402,7 +453,7 @@ header {
   fill: #2196f3;
 }
 
-/*footer*/
+/*======== footer =========*/
 
 .footer {
   padding-top: 60px;
@@ -505,7 +556,7 @@ header {
   background-color: var(--accent-color);
 }
 
-/*Стилі portfolio.html*/
+/*===== Стилі portfolio.html =======*/
 
 .visually-hidden {
   position: absolute;
@@ -607,10 +658,11 @@ header {
   background: rgba(33, 150, 243, 0.9);
 
   padding: 63px 24px;
-  overflow: auto;
+ 
 }
 
-.overley-portfolio:hover .overley-portfolio-link {
+.portfolio-link:hover .overley-portfolio-link,
+.portfolio-link:focus .overley-portfolio-link {
   transform: translateY(0%);
 }
 
@@ -641,4 +693,57 @@ header {
   line-height: 1.87;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
+}
+
+/*====== backdrop ========*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  
+  background-color: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+  0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  cursor: pointer;
 }
